@@ -1,4 +1,4 @@
 Git is a distributed version control system.
 Git is free software distributed under the GPL.
 版本二提交
-Creating a new branch is quick AND simple.111
+feature 合并master冲突修改
