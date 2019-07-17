@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /**
+         * @description: 
+         * @param {type} 
+         * @return: 
+         */
+        
+        Function.prototype.myBind = function(context){
+             /* 1、保存this，获取第一个参数*/
+            const _this=this;
+            /* 2、将arguments保存成数组*/
+            const slice =Array.prototype.slice
+            const args = slice.apply(arguments,[1])
+            console.log(args,'args');
+            /* 3、返回一个函数，使用apply */
+            return function(){
+                return _this.apply(context,args)
+            }
+        }
+        function test(key){
+            console.log(this,key);
+           
+        }
+        const b={
+            a:1,
+            b:2
+        }
+        const c = test.myBind(b,23,34)
+        c()
+        
+        
+
+    </script>
+</body>
+</html>
